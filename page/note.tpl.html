@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cap or swap, runway 27 · Dac Vinh Nguyen</title>
+<meta name="description" content="If the war ends, the swap calls. If it doesn't, the fuel bill does. A jet fuel hedging note drawn as an approach chart, with both sides of the policy.">
+<meta property="og:title" content="Cap or swap, runway 27">
+<meta property="og:description" content="If the war ends, the swap calls. If it doesn't, the fuel bill does.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='110' fill='%23fbfaf6'/%3E%3Cg transform='translate(56 56) scale(.78)'%3E%3Cpath fill='%23101214' d='{{DUCK_URI}}'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #0d1218; --paper: #fbfaf6; --ink: #101214; --ink2: #4b5056; --ink3: #858a90; --hair: #cfcdc4; --band: #f3f1e9;
+    --mag: #b5127c; --cyan: #0a7d9c; --green: #12794a; --amber: #b9770a; --red: #c8321f;
+    --terrain: #efe6d4; --terrain-line: #a8926b;
+    --cond: "Barlow Condensed", "Arial Narrow", sans-serif; --body: "Barlow", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace; --hand: "Caveat", "Segoe Print", cursive;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--night); }
+  body { margin: 0; min-height: 100vh; color: var(--ink); font: 400 14px/1.42 var(--body); background: radial-gradient(1200px 640px at 50% -80px, #1e2835 0%, var(--night) 66%) fixed; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .stage { padding: 26px 14px 64px; display: flex; flex-direction: column; align-items: center; gap: 13px; }
+  .toolbar { width: min(1040px, 100%); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; color: #b7c0cc; font-size: 13.5px; }
+  .toolbar b { color: #eef2f6; font-weight: 600; }
+  .tools { display: flex; gap: 8px; }
+  button { font: 600 12.5px/1 var(--body); cursor: pointer; }
+  .tools button { color: #eef2f6; background: transparent; border: 1px solid #4b5563; border-radius: 999px; padding: 9px 14px; }
+  .tools button:hover { border-color: #8d99aa; }
+  .tools button.main { background: #eef2f6; color: var(--night); border-color: #eef2f6; }
+  button:focus-visible, input:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+  .book { width: min(1040px, 100%); perspective: 2600px; }
+  .leaf { display: grid; transform-style: preserve-3d; transition: transform .95s cubic-bezier(.45,.05,.2,1); }
+  .turned .leaf { transform: rotateY(180deg); }
+  .face { grid-area: 1 / 1; position: relative; background: var(--paper); border-radius: 2px; padding: 26px 30px 20px 66px; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.5); opacity: 0; transition: opacity .6s ease; }
+  .in .face { opacity: 1; }
+  .face.back { transform: rotateY(180deg); padding: 26px 66px 20px 30px; }
+  .holes { position: absolute; top: 2.5%; bottom: 2.5%; left: 14px; width: 30px; background: radial-gradient(circle at 15px 50%, var(--night) 8.2px, rgba(16,18,20,.28) 8.8px, transparent 9.4px) 0 0 / 30px 14.2857% repeat-y; }
+  .back .holes { left: auto; right: 14px; }
+
+  .plate { border: 1.7px solid var(--ink); }
+  .sec { border-top: 1px solid var(--ink); position: relative; }
+  .tab { font: 600 11.5px/1 var(--cond); letter-spacing: .08em; }
+  .tab i { font-style: normal; color: var(--ink3); font-weight: 500; }
+
+  .phead { display: grid; grid-template-columns: 1.35fr auto 1fr; align-items: center; gap: 12px; padding: 9px 12px; }
+  .nm { font: 700 21px/1 var(--cond); letter-spacing: .03em; }
+  .ct { margin-top: 3px; font-size: 11px; color: var(--ink2); white-space: nowrap; }
+  .proc { display: flex; align-items: center; gap: 9px; font: 700 25px/1 var(--cond); letter-spacing: .03em; white-space: nowrap; }
+  .rw { background: var(--ink); color: #fff; padding: 4px 8px 3px; }
+  .dt { text-align: right; font: 500 12.5px/1.25 var(--cond); letter-spacing: .06em; color: var(--ink2); }
+  .brief { display: grid; grid-template-columns: repeat(7, 1fr); }
+  .brief div { padding: 6px 8px 6px; border-left: 1px solid var(--ink); min-width: 0; }
+  .brief div:first-child { border-left: 0; }
+  .brief small { display: block; font: 500 10.5px/1.1 var(--cond); letter-spacing: .05em; color: var(--ink2); white-space: nowrap; overflow: hidden; }
+  .brief b { display: block; margin-top: 3px; font: 600 16px/1 var(--mono); letter-spacing: -.02em; }
+  .brief .m b { color: var(--mag); } .brief .c b { color: var(--cyan); } .brief .g b { color: var(--green); } .brief .r b { color: var(--red); }
+  .missed { padding: 6px 12px; font-size: 12.5px; }
+  .missed b { font: 700 12.5px/1 var(--cond); letter-spacing: .07em; margin-right: 7px; }
+
+  .title { padding: 15px 14px 13px; }
+  h1 { margin: 0 0 8px; font: 700 50px/.98 var(--cond); letter-spacing: .002em; text-transform: uppercase; text-wrap: balance; }
+  h1 span { color: #8f949a; }
+  .lead { margin: 0; font-size: 17.5px; line-height: 1.38; max-width: 66em; }
+  .lead b { font-weight: 600; }
+
+  .hold { display: grid; grid-template-columns: 1.3fr repeat(4, minmax(0, 1fr)); }
+  .hold > div { padding: 7px 10px 8px; border-left: 1px solid var(--hair); font-size: 12.8px; line-height: 1.26; min-width: 0; }
+  .hold > div:first-child { border-left: 0; display: flex; gap: 9px; align-items: center; }
+  .hold b { display: block; font: 700 12.5px/1.05 var(--cond); letter-spacing: .05em; margin-bottom: 2px; }
+  .hold svg { flex: none; width: 58px; height: 28px; overflow: visible; }
+  .chart { padding: 8px 12px 6px; }
+  .chart svg { display: block; width: 100%; height: auto; overflow: visible; touch-action: pan-y; }
+  .ctl { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 6px 20px; padding: 7px 12px 9px; border-top: 1px solid var(--hair); align-items: end; }
+  .ctl label { display: flex; justify-content: space-between; font: 600 11.5px/1 var(--cond); letter-spacing: .06em; }
+  .ctl output { font: 600 12.5px/1 var(--mono); }
+  input[type=range] { -webkit-appearance: none; appearance: none; display: block; width: 100%; height: 20px; margin: 2px 0 0; background: transparent; cursor: pointer; }
+  input[type=range]::-webkit-slider-runnable-track { height: 2px; background: var(--ink); }
+  input[type=range]::-moz-range-track { height: 2px; background: var(--ink); }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 11px; height: 17px; margin-top: -7.5px; background: var(--c, var(--green)); border: 1.5px solid var(--ink); }
+  input[type=range]::-moz-range-thumb { width: 9px; height: 15px; border-radius: 0; background: var(--c, var(--green)); border: 1.5px solid var(--ink); }
+  .seg { display: flex; border: 1px solid var(--ink); margin-top: 4px; }
+  .seg button { flex: 1; background: transparent; border: 0; border-left: 1px solid var(--ink); padding: 5px 2px; font: 600 11.5px/1 var(--cond); letter-spacing: .05em; color: var(--ink); white-space: nowrap; }
+  .seg button:first-child { border-left: 0; }
+  .seg button[aria-pressed=true] { background: var(--ink); color: #fff; }
+
+  .low { display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr); }
+  .low > div { min-width: 0; }
+  .plan { border-left: 1px solid var(--ink); }
+  .mins { padding: 8px 12px 9px; }
+  table { border-collapse: collapse; width: 100%; }
+  .min { margin-top: 6px; font: 500 13px/1 var(--mono); }
+  .min th { font: 600 10.5px/1.08 var(--cond); letter-spacing: .03em; text-align: right; padding: 0 5px 5px; vertical-align: bottom; border-bottom: 1.4px solid var(--ink); }
+  .min th:first-child { text-align: left; padding-left: 0; }
+  .min th em { display: inline-block; font-style: normal; width: 15px; height: 15px; line-height: 14px; text-align: center; border: 1px solid var(--ink); border-radius: 50%; margin-bottom: 3px; font-size: 10.5px; }
+  .min th span { display: block; color: var(--ink2); font-weight: 500; }
+  .min td { text-align: right; padding: 5.5px 5px; border-bottom: 1px solid var(--hair); position: relative; }
+  .min td:first-child { text-align: left; padding-left: 0; font: 600 12.5px/1.05 var(--cond); letter-spacing: .03em; white-space: nowrap; }
+  .min td.best { font-weight: 600; background: #e8f1ea; }
+  .min td.worst { font-weight: 600; border-left: 1.4px solid var(--ink); }
+  .min th.worst { border-left: 1.4px solid var(--ink); color: var(--ink); }
+  .min tr.hind td { background: #edf5ef; }
+  .min tr.hind td.best { background: #d9ebdf; }
+  .min tr.hind td:first-child { color: var(--green); font-weight: 700; }
+  .min tr.mine td:first-child { color: var(--amber); }
+  .min tr:last-child td { border-bottom: 0; }
+  .circled::after { content: ""; position: absolute; inset: -2px -1px -3px 7px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50' preserveAspectRatio='none'%3E%3Cpath d='M56 4C24 2 4 11 4 25c0 14 26 22 54 20 24-2 39-12 37-24C93 9 72 2 42 5' fill='none' stroke='%23c8321f' stroke-width='2.4' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center / 100% 100% no-repeat; pointer-events: none; }
+
+  .notes { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .notes p { margin: 0; padding: 8px 12px 9px; font-size: 13px; line-height: 1.36; border-left: 1px solid var(--hair); }
+  .notes p:first-child { border-left: 0; }
+  .notes b { display: block; font: 700 12.5px/1 var(--cond); letter-spacing: .05em; margin-bottom: 4px; text-transform: uppercase; }
+  .pfoot { display: flex; justify-content: space-between; gap: 14px; padding: 6px 12px; font-size: 11px; line-height: 1.3; color: var(--ink2); }
+  .pfoot b { font: 700 11.5px/1.1 var(--cond); letter-spacing: .06em; color: var(--ink); }
+  .pfoot .src { text-align: right; }
+
+  /* the charts' words */
+  .a { font: 500 11.5px var(--mono); fill: var(--ink3); }
+  .l { font: 600 12.5px var(--cond); letter-spacing: .04em; fill: var(--ink); }
+  .l2 { font: 500 11.5px var(--cond); letter-spacing: .03em; fill: var(--ink2); }
+  .v { font: 600 12px var(--mono); fill: var(--ink); }
+  .h { font: 700 19px var(--hand); fill: #23409e; }
+  .pen { fill: none; stroke: #23409e; stroke-width: 1.4; stroke-linecap: round; }
+  .grid { stroke: #e6e3da; stroke-width: 1; }
+  .bugline { stroke-width: 1.4; stroke-dasharray: 5 3; }
+  .bug { cursor: ns-resize; }
+
+  /* the back */
+  .rw3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rw3 > div { padding: 7px 10px 6px; border-left: 1px solid var(--hair); min-width: 0; }
+  .rw3 > div:first-child { border-left: 0; }
+  .rw3 svg { display: block; width: 100%; height: auto; margin-top: 3px; overflow: visible; }
+  .rwt { display: flex; justify-content: space-between; align-items: baseline; font: 700 14px/1 var(--cond); letter-spacing: .05em; }
+  .rwt span { font-weight: 500; font-size: 12px; color: var(--ink2); }
+  .stat { margin-top: 4px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+  .stat div { font: 500 9.8px/1.1 var(--cond); letter-spacing: .03em; color: var(--ink2); }
+  .stat b { display: block; font: 600 12.5px/1.1 var(--mono); color: var(--ink); letter-spacing: -.02em; margin-top: 1px; }
+  .legend { display: flex; gap: 14px; font: 500 11px/1 var(--cond); letter-spacing: .04em; color: var(--ink2); flex-wrap: wrap; }
+  .legend i { display: inline-block; width: 16px; height: 0; border-top: 2px solid; vertical-align: 3px; margin-right: 4px; }
+  .legend i.box { height: 9px; border: 0; vertical-align: -1px; }
+  .rhead { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 7px 12px 0; flex-wrap: wrap; }
+  .flog { padding: 7px 12px 4px; border-top: 1px solid var(--hair); }
+  .flog svg { display: block; width: 100%; height: auto; margin-top: 3px; overflow: visible; }
+  .takeaway { margin: 0; padding: 6px 12px 8px; font-size: 13.5px; border-top: 1px solid var(--hair); }
+  .takeaway b { font-weight: 600; }
+  .bctl { display: flex; gap: 16px; flex-wrap: wrap; padding: 6px 12px 7px; border-top: 1px solid var(--hair); }
+  .bctl > div { display: flex; align-items: center; gap: 7px; font: 600 11.5px/1 var(--cond); letter-spacing: .06em; }
+  .bctl .seg { margin-top: 0; }
+  .bctl .seg button { padding: 4px 8px; }
+  .three { display: grid; grid-template-columns: minmax(0, 1.14fr) minmax(0, .92fr) minmax(0, 1fr); }
+  .three > div { padding: 8px 11px 8px; border-left: 1px solid var(--ink); min-width: 0; }
+  .three > div:first-child { border-left: 0; }
+  .three svg { display: block; width: 100%; height: auto; margin-top: 4px; overflow: visible; }
+  .three p { margin: 5px 0 0; font-size: 12.8px; line-height: 1.33; }
+  .big { display: flex; gap: 14px; margin-top: 6px; }
+  .big div { font: 500 10.5px/1.12 var(--cond); letter-spacing: .03em; color: var(--ink2); }
+  .big b { display: block; font: 600 25px/1 var(--mono); letter-spacing: -.04em; color: var(--ink); margin-bottom: 2px; }
+  .big .u b { color: var(--red); }
+  .alt { margin-top: 6px; font: 500 12.5px/1 var(--mono); }
+  .alt th { font: 600 10.3px/1.05 var(--cond); letter-spacing: .03em; text-align: right; padding: 0 3px 4px; border-bottom: 1.4px solid var(--ink); vertical-align: bottom; }
+  .alt th:first-child, .alt td:first-child { text-align: left; padding-left: 0; }
+  .alt td { text-align: right; padding: 5px 3px; border-bottom: 1px solid var(--hair); }
+  .alt td:first-child { font: 600 12px/1.05 var(--cond); letter-spacing: .03em; white-space: nowrap; }
+  .alt .neg { color: var(--red); }
+  .two { display: grid; grid-template-columns: 1fr 1.08fr; }
+  .two > div { padding: 8px 12px 9px; font-size: 13px; line-height: 1.36; min-width: 0; }
+  .two > div + div { border-left: 1px solid var(--ink); }
+  .two ul { margin: 4px 0 0; padding: 0; list-style: none; }
+  .two li { padding-left: 11px; position: relative; margin-top: 2px; }
+  .two li::before { content: ""; position: absolute; left: 0; top: .52em; width: 5px; height: 5px; background: var(--ink); transform: rotate(45deg); }
+  .two p { margin: 4px 0 0; }
+  .sig { display: flex; align-items: center; gap: 8px; margin-top: 3px; }
+  .sig span { font: 700 25px/1 var(--hand); color: #23409e; transform: rotate(-2deg); }
+  .sig svg { width: 19px; height: 19px; }
+  .last { font-style: italic; }
+
+  .why { position: fixed; z-index: 30; max-width: 270px; padding: 7px 9px; background: var(--ink); color: #f1f2f3; font: 400 12px/1.35 var(--body); border-radius: 2px; pointer-events: none; opacity: 0; transition: opacity .12s; }
+  .why.on { opacity: 1; }
+  [data-why] { cursor: help; }
+
+  @media screen and (max-width: 860px) {
+    .face { padding: 12px 12px 12px 34px; } .face.back { padding: 12px 34px 12px 12px; }
+    .holes { left: 6px; width: 18px; background-size: 18px 14.2857%; background-image: radial-gradient(circle at 9px 50%, var(--night) 5px, transparent 5.6px); }
+    .back .holes { right: 6px; }
+    .phead { grid-template-columns: minmax(0, 1fr); gap: 6px; } .dt { text-align: left; } .ct { white-space: normal; } .proc { flex-wrap: wrap; font-size: 22px; }
+    .hold { grid-template-columns: repeat(2, minmax(0, 1fr)); } .hold > div:first-child { grid-column: 1 / -1; }
+    .brief { grid-template-columns: repeat(2, 1fr); } .brief div { border-left: 0; border-top: 1px solid var(--hair); } .brief small { white-space: normal; }
+    h1 { font-size: 36px; } .lead { font-size: 16.5px; }
+    .ctl { grid-template-columns: 1fr; } .low, .notes, .rw3, .three, .two { grid-template-columns: minmax(0, 1fr); }
+    .plan, .three > div, .two > div + div, .notes p, .rw3 > div { border-left: 0; border-top: 1px solid var(--hair); }
+    .mins { overflow-x: auto; } .min { min-width: 470px; }
+    .pfoot { flex-direction: column; } .pfoot .src { text-align: left; }
+  }
+  @media (prefers-reduced-motion: reduce) { .leaf, .face { transition: none; } }
+
+  @page { size: A4; margin: 0; }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body { background: #fff !important; }
+    .stage { padding: 0; display: block; }
+    .toolbar, .ctl, .bctl, .web, .why { display: none !important; }
+    .book { width: auto; perspective: none; }
+    .leaf { display: block; transform: none !important; transition: none; }
+    .face, .face.back { width: 210mm; height: 296.5mm; overflow: hidden; transform: none !important; backface-visibility: visible; -webkit-backface-visibility: visible; opacity: 1 !important; box-shadow: none; border-radius: 0; padding: 7mm 8mm 5mm 16mm; break-after: page; page-break-after: always; display: flex; }
+    .face.back { padding: 7mm 16mm 5mm 8mm; break-after: auto; page-break-after: auto; }
+    .plate { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+    .grow { flex: 1; }
+    .holes { left: 4mm; width: 7mm; top: 2%; bottom: 2%; background: radial-gradient(circle at 3.5mm 50%, #fff 1.9mm, #b9b7ae 2mm, #fff 2.15mm, transparent 2.3mm) 0 0 / 7mm 14.2857% repeat-y; }
+    .back .holes { left: auto; right: 4mm; }
+    body { font-size: 8.6pt; }
+    .phead { padding: 1.8mm 2.6mm; } .nm { font-size: 13pt; } .ct { font-size: 6.6pt; margin-top: .4mm; }
+    .proc { font-size: 15.5pt; gap: 1.6mm; } .rw { padding: .8mm 1.6mm .6mm; } .dt { font-size: 7.6pt; }
+    .brief div { padding: 1.1mm 1.5mm; } .brief small { font-size: 6.2pt; } .brief b { font-size: 9.8pt; margin-top: .6mm; }
+    .missed { padding: 1.1mm 2.6mm; font-size: 7.9pt; } .missed b { font-size: 7.9pt; }
+    .title { padding: 3mm 2.8mm 2.7mm; } h1 { font-size: 29pt; margin-bottom: 1.6mm; } .lead { font-size: 10.1pt; line-height: 1.33; max-width: none; }
+    .hold > div { padding: 1.3mm 2mm 1.5mm; font-size: 7.6pt; line-height: 1.24; } .hold b { font-size: 7.4pt; margin-bottom: .3mm; } .hold svg { width: 10mm; height: 4.8mm; } .hold > div:first-child { gap: 1.6mm; }
+    .chart { padding: 1.5mm 2.4mm 1mm; } .tab { font-size: 7.1pt; }
+    .mins { padding: 1.6mm 2.4mm 1.4mm; } .min { margin-top: 1.4mm; font-size: 8.8pt; }
+    .min th { font-size: 6.4pt; padding: 0 1mm 1mm; } .min th em { width: 3.2mm; height: 3.2mm; line-height: 3mm; font-size: 6.3pt; margin-bottom: .6mm; }
+    .min td { padding: 1.75mm 1mm; } .min td:first-child { font-size: 8pt; }
+    .notes p { padding: 1.6mm 2.4mm 1.8mm; font-size: 7.9pt; line-height: 1.32; } .notes b { font-size: 7.7pt; margin-bottom: .8mm; }
+    .pfoot { padding: 1.2mm 2.4mm; font-size: 6.4pt; } .pfoot b { font-size: 7pt; }
+    .rhead { padding: 1.5mm 2.4mm 0; } .legend { font-size: 6.6pt; gap: 3mm; } .legend i { width: 3.4mm; margin-right: .8mm; vertical-align: 1.8pt; } .legend i.box { height: 1.8mm; vertical-align: -.3pt; }
+    .flog { padding: 1.4mm 2.4mm .6mm; }
+    .rw3 > div { padding: 1.2mm 2mm 1.2mm; } .rwt { font-size: 8.8pt; } .rwt span { font-size: 7.2pt; }
+    .stat div { font-size: 5.9pt; } .stat b { font-size: 7.7pt; }
+    .takeaway { padding: 1.3mm 2.5mm 1.6mm; font-size: 8.3pt; }
+    .three > div { padding: 1.6mm 2.2mm 1.6mm; } .three p { font-size: 7.9pt; line-height: 1.31; margin-top: 1mm; }
+    .big { gap: 3mm; margin-top: 1.1mm; } .big div { font-size: 6.4pt; } .big b { font-size: 15.5pt; }
+    .alt { font-size: 7.6pt; margin-top: 1.1mm; } .alt th { font-size: 6.2pt; padding: 0 .7mm .8mm; } .alt td { padding: .95mm .7mm; } .alt td:first-child { font-size: 7.3pt; }
+    .two > div { padding: 1.6mm 2.4mm 1.8mm; font-size: 8pt; line-height: 1.32; } .two p { margin-top: .8mm; } .two li { margin-top: .4mm; padding-left: 2.2mm; }
+    .sig span { font-size: 15pt; } .sig svg { width: 4mm; height: 4mm; } .sig { margin-top: .4mm; gap: 1.5mm; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="toolbar">
+    <span><b>One sheet, two sides.</b> Drag the green bug to set your own cap. Turn it over for the desk that carries it.</span>
+    <span class="tools"><button id="flip" class="main" type="button">Turn over</button><button id="print" type="button">Save as PDF</button></span>
+  </div>
+  <div class="book" id="book"><div class="leaf">
+
+    <article class="face front" id="front">
+      <div class="holes"></div>
+      <div class="plate">
+        <header class="phead">
+          <div><div class="nm">DAC VINH NGUYEN</div><div class="ct">London · <a href="mailto:dacvinh268@gmail.com">dacvinh268@gmail.com</a> · <a href="https://www.linkedin.com/in/vinhdac">linkedin.com/in/vinhdac</a> · <a href="https://vinhdac.github.io/">vinhdac.github.io</a></div></div>
+          <div class="proc">CAP OR SWAP <span class="rw">RWY 27</span></div>
+          <div class="dt">NOTE 01 · FOR THE AIRLINE<br>{{date}} · JET A-1 · 10M GAL A MONTH</div>
+        </header>
+        <div class="brief sec">
+          <div data-why="US Gulf Coast jet fuel spot price, EIA, {{asof}}."><small>JET TODAY</small><b>{{spot}}</b></div>
+          <div data-why="The same price on 27 February 2026, the last trading day before the jump."><small>BEFORE THE WAR</small><b>{{jet_pre}}</b></div>
+          <div class="c" data-why="Discount-weighted average of the twelve 2027 jet forwards: each listed heating oil contract plus today's jet differential."><small>SWAP FOR 2027</small><b>{{swap}}</b></div>
+          <div data-why="What the same twelve months were worth as a swap on 27 February 2026."><small>SAME, PRE-WAR</small><b>{{swap_pre}}</b></div>
+          <div class="g" data-why="Fair value of a cap struck at the swap rate, carried to each settlement date. Before any seller's margin."><small>HINDSIGHT FEE</small><b id="b-fee">{{fee}}</b></div>
+          <div data-why="120 million gallons at the swap rate."><small>2027 FUEL BILL</small><b>{{bill}}</b></div>
+          <div class="r" data-why="Daily margin, no threshold, if the whole 2027 curve fell back to its pre-war level with all twelve months still to run."><small>CALL IF WAR ENDS</small><b>{{call}}</b></div>
+        </div>
+        <div class="missed sec"><b>MISSED APPROACH</b>If prices climb, the cap pays the difference every month. If they fall, you buy at the market and the fee is all it cost.</div>
+        <section class="title sec">
+          <h1><span>If the war ends,</span> the swap calls. <span>If it doesn't,</span> the fuel bill does.</h1>
+          <p class="lead">Airlines are stopping their hedges. Lock in 2027 now at {{swap}} a gallon, and peace could leave you {{swap_regret}} above the market with a {{call_lc}} margin call. Stay open, and the next spike is all yours. A cap struck at the swap rate settles it: each month you pay the lower of the market and {{swap}}, plus one fee fixed today, about <b>{{fee_c}} a gallon</b>. It is the price of deciding after you know.</p>
+        </section>
+        <section class="hold sec">
+          <div><svg viewBox="0 0 58 28" aria-hidden="true"><path d="M14 4 H44 A10 10 0 0 1 44 24 H14 A10 10 0 0 1 14 4 Z" fill="none" stroke="#101214" stroke-width="1.6"/><path d="M26 0.8 L32 4 L26 7.2 M32 20.8 L26 24 L32 27.2" fill="none" stroke="#101214" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 11 L7.5 17 L.5 17 Z" fill="#101214" transform="translate(0 -.5)"/></svg><span><b>HOLDING PATTERN</b>Hedges bought before the war run off in 2027.</span></div>
+          <div><b>RYANAIR</b>About 80% hedged to March 2027. Stopped hedging in September.</div>
+          <div><b>FINNAIR</b>34% hedged for 2027. Has stopped adding.</div>
+          <div><b>AIRASIA</b>"Most hedging is finishing," says its chief executive.</div>
+          <div><b>AMERICAN, UNITED, DELTA</b>No material fuel hedges.</div>
+        </section>
+        <section class="sec grow">
+          <div class="chart"><div class="tab">PROFILE <i>· JET FUEL, $ A GALLON. THE FORWARD CURVE IS THE GLIDE PATH. THE SWAP RATE IS THE DECISION HEIGHT.</i></div><svg id="profile" role="img" aria-label="Jet fuel rose from about two dollars to four dollars during 2026. The forward curve for 2027 descends from today's price to about three dollars sixteen. The swap rate of three dollars fifty-one sits on that path."></svg></div>
+          <div class="ctl web">
+            <div style="--c:var(--green)"><label for="k">YOUR CAP STRIKE <output id="ok"></output></label><input id="k" type="range" min="2.5" max="6" step="0.01"></div>
+            <div style="--c:var(--amber)"><label for="x">YOUR 2027 PRICE <output id="ox"></output></label><input id="x" type="range" min="1.5" max="6.5" step="0.01"></div>
+            <div><label>VOLATILITY BEHIND THE FEES <output id="os"></output></label><div class="seg" id="scale"></div></div>
+          </div>
+        </section>
+        <section class="low sec">
+          <div class="mins"><div class="tab">MINIMUMS <i>· WHAT 2027 COSTS, $ A GALLON, FEE INCLUDED</i></div>
+            <table class="min" id="mins"></table>
+          </div>
+          <div class="plan"><div class="chart"><div class="tab">PLAN <i>· WHAT YOU PAY, WHEREVER JET GOES</i></div><svg id="payoff" role="img" aria-label="What each hedge costs at any 2027 jet price. The cap at the swap rate runs a fixed fee above the better of no hedge and the swap."></svg></div></div>
+        </section>
+        <section class="notes sec">
+          <p><b>Why it works</b>Above {{swap}} the policy pays the difference, so no month costs more than {{swap}}. Below it you buy at the market. Either way you get the better of the swap and no hedge, less the fee. Nobody has to forecast the war.</p>
+          <p><b>Replayed since {{first}}</b>Struck at each year's swap rate, the same cap averaged {{h_cap}} a gallon, against {{h_swap}} for the swap and {{h_none}} with no hedge. Its worst year left {{h_rc}} of regret. The swap's left {{h_rs}}, no hedge's {{h_rn}}.</p>
+          <p><b>How firm is the fee</b>Nobody publishes jet option prices, so volatility is built from heating oil and crude's OVX index. With it 20% lower or 25% higher the fee is {{fee_lo}} to {{fee_hi}}. Sized to the errors forwards have really made, {{fee_hist}}. A seller adds its margin.</p>
+        </section>
+        <footer class="pfoot sec"><span><b>NOT FOR NAVIGATION. NOT AN OFFER OF INSURANCE.</b> Regret: what you paid above the better of the swap and no hedge. Live: <a href="https://vinhdac.github.io/notes/cap-or-swap/">vinhdac.github.io/notes/cap-or-swap</a></span><span class="src">Prices: EIA, US Treasury, Yahoo Finance. Hedging reports: Reuters, 28 Oct 2026. Data to {{asof_s}}.</span></footer>
+      </div>
+    </article>
+
+    <article class="face back" id="back">
+      <div class="holes"></div>
+      <div class="plate">
+        <header class="phead">
+          <div><div class="nm">DAC VINH NGUYEN</div><div class="ct"><a href="{{REPO}}">{{REPO_SHORT}}</a> · {{checks}} checks passed · {{faults}} planted faults caught</div></div>
+          <div class="proc">THE OTHER SIDE <span class="rw">RWY 20 22 26</span></div>
+          <div class="dt">NOTE 01 · FOR THE DESK<br>{{date}} · GROUND IS ZERO</div>
+        </header>
+        <section class="title sec">
+          <h1><span>The margin call doesn't vanish.</span> It shrinks, and it turns around.</h1>
+          <p class="lead">A policy takes the margin call away from the airline. If the desk carrying the risk hedges it in futures, the call comes back far smaller and from the other side. The airline's came when prices fell. The desk's biggest comes when they spike, and its own hedge gains pay for most of it. Here is a cap struck {{otm}} above the swap, sold each December and replayed day by day.</p>
+        </section>
+        <section class="sec grow">
+          <div class="rhead"><div class="tab">APPROACHES <i>· CASH ON 10M GALLONS A MONTH, $M</i></div><div class="legend"><span><i style="border-color:var(--green)"></i>SELLER'S CASH, AFTER MARGIN</span><span><i class="box" style="background:var(--amber);opacity:.45"></i>INITIAL MARGIN HELD</span><span><i style="border-color:var(--red)"></i>CASH THE SWAP CALLS FROM THE AIRLINE</span></div></div>
+          <div class="rw3" id="rws"></div>
+          <div class="bctl web">
+            <div>HEDGE <span class="seg" id="inst"></span></div>
+            <div>POLICY LIMIT <span class="seg" id="lim"></span></div>
+          </div>
+          <div class="flog"><div class="tab">FLIGHT LOG <i>· THE MOST CASH EACH SIDE HAD TO FIND IN A YEAR, $M</i></div><svg id="flog" role="img" aria-label="For each year since 2008, the largest margin call on the airline's swap and the largest cash shortfall of the seller."></svg></div>
+          <p class="takeaway">In {{nyears}} years the seller's cash, after initial margin, never fell more than <b>{{low_cash}}</b> below zero. The airline's swap called more than $20m in <b>{{swap20}} of them</b>, and <b>{{call20}}</b> in the worst. The price of that safety is a hedge that must work on the days it matters.</p>
+        </section>
+        <section class="three sec">
+          <div><div class="tab">THIS POLICY HAS TWO PRICES</div>
+            <div class="big"><div><b>{{trader}}</b>TRADER: WHAT IT COSTS<br>TO REPLICATE</div><div class="u"><b>{{burn}}</b>UNDERWRITER: WHAT SUCH<br>COVER HAS PAID</div></div>
+            <svg id="prices" role="img" aria-label="Replication cost and historical claims for caps at four strikes. Claims are about two to three times replication."></svg>
+            <p>Per $1 of swap rate, for a cap {{otm}} above the swap, {{first}} to 2026. Claims ran {{ratio}} times the trader's price, {{ratio25}} times before 2026. The 90% range on the claims is {{burn_lo}} to {{burn_hi}}.</p>
+          </div>
+          <div><div class="tab">FLIGHT LEVELS <i>· ABOVE THE STRIKE</i></div>
+            <svg id="layers" role="img" aria-label="Share of premium and of claims in each layer above the strike."></svg>
+            <p>In 2026 the cover more than $1 above the strike was <b>{{top_p}}</b> of the premium and <b>{{top_c}}</b> of the claims. Priced off the market, the top of the policy looks free. It is not.</p>
+          </div>
+          <div><div class="tab">ALTERNATES <i>· RESULT OF THE BOOK, $M</i></div>
+            <table class="alt" id="alts"></table>
+            <p>Premium minus claims, plus the hedge. Heating oil explained {{r2h}} of jet's daily moves in 2026, Brent {{r2b}}. {{y22}} of heating oil's {{ho_total}} came in 2022 alone, so do not bank it.</p>
+          </div>
+        </section>
+        <section class="two sec">
+          <div><div class="tab">NOTAM <i>· NOT VISIBLE FROM OUTSIDE</i></div>
+            <ul><li>Real option quotes. The fees use public proxies.</li><li>The policy wording: index, limit, settlement.</li><li>How the risk is carried. This side assumes listed futures; if it is laid off, these numbers are the reinsurer's.</li><li>Gulf Coast prices stand in for the airline's own. Initial margin is a rule, not the exchange's schedule.</li></ul>
+          </div>
+          <div><div class="tab">REQUEST</div>
+            <p>You sign off every number a client sees. I priced Asian options in C++, reported that Kupiec rejected all five of my VaR models rather than show the flattering one, and built an app whose AI cannot state a figure the app did not compute. You have the quotes and the wording. I would like to do this work on them.</p>
+            <p class="last">If any number here is wrong, I would like to be the first to know.</p>
+            <div class="sig"><span>Dac Vinh Nguyen</span><svg viewBox="0 0 512 512" role="img" aria-label="a duck, my mark"><path fill="#101214" d="{{DUCK_PATH}}"/></svg></div>
+          </div>
+        </section>
+        <footer class="pfoot sec"><span><b>NOT FOR NAVIGATION. NOT AN OFFER OF INSURANCE.</b> Code, data sources and every check: <a href="{{REPO}}">{{REPO_SHORT}}</a></span><span class="src">Premiums are fair values on public proxies. Hedged daily in the front contract. 2026 to {{asof_s}}, open months at model value.</span></footer>
+      </div>
+    </article>
+
+  </div></div>
+</div>
+<div class="why" id="why"></div>
+
+<script>
+(function () {
+  "use strict";
+  var D = {{DATA}};
+  var doc = document, $ = function (id) { return doc.getElementById(id); };
+  var q = new URLSearchParams(location.search), printing = q.has("print");
+  var still = q.has("still") || !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var C = D.cover, DAY = 864e5, MONTHS = "JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC".split(" ");
+  var MINUS = "−";
+  var state = { K: 4.5, x: 4.85, scale: 1, inst: "ho", lim: "none" };
+  function day(s) { return Date.parse(s + "T00:00:00Z") / DAY; }
+  function f1(v) { return v.toFixed(1); }
+  function usd(v) { return "$" + v.toFixed(2); }
+  function money(v, n) { n = n === undefined ? 1 : n; return (v < 0 ? MINUS : "") + "$" + Math.abs(v).toFixed(n) + "m"; }
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+  /* ---- pricing: the closed form of model.py, for the 2027 cover ---- */
+  var T0 = day(C.t0), times = [];
+  for (var m = 0; m < 12; m++) {
+    var n = new Date(Date.UTC(2027, m + 1, 0)).getUTCDate(), a = [];
+    for (var dd = 1; dd <= n; dd++) {
+      var wd = new Date(Date.UTC(2027, m, dd)).getUTCDay();
+      if (wd > 0 && wd < 6) a.push((Date.UTC(2027, m, dd) / DAY - T0) / 365);
+    }
+    times.push(a);
+  }
+  function erfc(x) {
+    var z = Math.abs(x), t = 1 / (1 + 0.5 * z);
+    var r = t * Math.exp(-z * z - 1.26551223 + t * (1.00002368 + t * (0.37409196 + t * (0.09678418 + t * (-0.18628806 + t * (0.27886807 + t * (-1.13520398 + t * (1.48851587 + t * (-0.82215223 + t * 0.17087277)))))))));
+    return x >= 0 ? r : 2 - r;
+  }
+  function N(x) { return 0.5 * erfc(-x / Math.SQRT2); }
+  function call(F, K, s, t) {
+    var n = t.length, sum = 0;
+    for (var i = 0; i < n; i++) sum += (2 * (n - 1 - i) + 1) * Math.exp(s * s * t[i]);
+    var v = Math.log(sum / (n * n)), r = Math.sqrt(v), d1 = (Math.log(F / K) + v / 2) / r;
+    return F * N(d1) - K * N(d1 - r);
+  }
+  function fees(K, limit) {
+    var fee = 0, pv = 0;
+    for (var i = 0; i < 12; i++) {
+      var s = C.sigma[i] * state.scale, c = call(C.F[i], K, s, times[i]);
+      if (limit) c -= call(C.F[i], K + limit, s, times[i]);
+      fee += c; pv += c * C.df[i];
+    }
+    return { fee: fee / 12, m: pv * 10 };
+  }
+  function hedges() {
+    var S = C.S, K0 = C.spot;
+    return [
+      { id: "none", name: "NO HEDGE", fee: 0, cost: function (x) { return x; } },
+      { id: "swap", name: "SWAP", fee: 0, cost: function () { return S; } },
+      capRow("hind", "CAP AT THE SWAP RATE", S),
+      capRow("cap", "CAP AT TODAY'S PRICE", K0),
+      capRow("layer", "LAYER " + usd(K0) + " TO " + usd(K0 + D.limit), K0, D.limit),
+      capRow("mine", "YOUR CAP AT " + usd(state.K), state.K)
+    ];
+  }
+  function capRow(id, name, K, limit) {
+    var f = fees(K, limit).fee;
+    return { id: id, name: name, K: K, limit: limit, fee: f, cost: function (x) { var p = Math.max(x - K, 0); return x - (limit ? Math.min(p, limit) : p) + f; } };
+  }
+  function regret(h, x) { return h.cost(x) - Math.min(x, C.S); }
+
+  /* ---- the table ---- */
+  function drawTable() {
+    var rows = hedges(), cats = D.cats, h = '<thead><tr><th>HEDGE</th><th>FEE</th>';
+    cats.forEach(function (c) { h += '<th><em>' + c.id + '</em><span>' + c.name + '</span>' + usd(c.x) + '</th>'; });
+    h += '<th class="web" style="color:var(--amber)"><span style="color:var(--amber)">YOUR PRICE</span>' + usd(state.x) + '</th><th class="worst">MOST YOU<br>CAN REGRET</th></tr></thead><tbody>';
+    var best = cats.map(function (c) { return Math.min.apply(null, rows.slice(0, 5).map(function (r) { return r.cost(c.x); })); });
+    var bx = Math.min.apply(null, rows.slice(0, 5).map(function (r) { return r.cost(state.x); }));
+    rows.forEach(function (r) {
+      h += '<tr class="' + (r.id === "hind" ? "hind" : r.id === "mine" ? "mine web" : "") + '"><td>' + r.name + '</td><td>' + (r.fee ? r.fee.toFixed(2) : "0") + '</td>';
+      cats.forEach(function (c, i) { var v = r.cost(c.x); h += '<td class="' + (r.id !== "mine" && Math.abs(v - best[i]) < 5e-4 ? "best" : "") + '">' + v.toFixed(2) + '</td>'; });
+      var vx = r.cost(state.x);
+      h += '<td class="web' + (r.id !== "mine" && Math.abs(vx - bx) < 5e-4 ? " best" : "") + '">' + vx.toFixed(2) + '</td>';
+      var w = Math.max.apply(null, cats.map(function (c) { return regret(r, c.x); }));
+      h += '<td class="worst' + (r.id === "hind" ? " circled" : "") + '">' + w.toFixed(2) + '</td></tr>';
+    });
+    $("mins").innerHTML = h + "</tbody>";
+    $("b-fee").textContent = usd(rows[2].fee);
+    $("ok").textContent = usd(state.K) + " · FEE " + rows[5].fee.toFixed(2);
+    $("ox").textContent = usd(state.x);
+    $("k").value = state.K; $("x").value = state.x;
+    return rows;
+  }
+
+  /* ---- svg helpers ---- */
+  function L(c, x1, y1, x2, y2, extra) { return '<line class="' + c + '" x1="' + f1(x1) + '" y1="' + f1(y1) + '" x2="' + f1(x2) + '" y2="' + f1(y2) + '"' + (extra || "") + "/>"; }
+  function S(x1, y1, x2, y2, col, w, dash) { return '<line x1="' + f1(x1) + '" y1="' + f1(y1) + '" x2="' + f1(x2) + '" y2="' + f1(y2) + '" stroke="' + col + '" stroke-width="' + (w || 1) + '"' + (dash ? ' stroke-dasharray="' + dash + '"' : "") + "/>"; }
+  function T(c, x, y, s, extra) { return '<text class="' + c + '" x="' + f1(x) + '" y="' + f1(y) + '"' + (extra || "") + ">" + s + "</text>"; }
+  var END = ' text-anchor="end"', MID = ' text-anchor="middle"';
+  var hatch = '<defs><pattern id="HID" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" fill="#efe6d4"/><line x1="0" y1="0" x2="0" y2="7" stroke="#cdbb97" stroke-width="1"/></pattern></defs>';
+
+  /* ---- the profile ---- */
+  var P = {};
+  function drawProfile() {
+    var narrow = !printing && $("profile").parentNode.clientWidth < 560;
+    P = narrow ? { W: 560, H: 430, L: 36, R: 64, T: 8 } : { W: 1000, H: printing ? 524 : 440, L: 44, R: 186, T: 8 };
+    P.B = P.H - 26;
+    var d0 = Date.UTC(2026, 0, 1) / DAY, d1 = Date.UTC(2028, 0, 1) / DAY, y27 = Date.UTC(2027, 0, 1) / DAY;
+    var xr = P.W - P.R, lo = 1.5, hi = 6.05;
+    P.x = function (d) { return P.L + (d - d0) / (d1 - d0) * (xr - P.L); };
+    P.y = function (p) { return P.B - (p - lo) / (hi - lo) * (P.B - P.T); };
+    P.p = function (y) { return lo + (P.B - y) / (P.B - P.T) * (hi - lo); };
+    var x = P.x, y = P.y, o = [hatch.replace("HID", "ter")], i;
+    var X27 = x(y27), td = x(T0), g = y(D.swap_pre);
+    o.push('<rect x="' + f1(X27) + '" y="' + P.T + '" width="' + f1(xr - X27) + '" height="' + f1(P.B - P.T) + '" fill="#f6f4ec"/>');
+    o.push('<rect x="' + f1(X27) + '" y="' + P.T + '" width="' + f1(xr - X27) + '" height="' + f1(y(C.S) - P.T) + '" fill="#dcebe1" opacity=".75"/>');
+    for (i = 2; i <= 6; i++) { o.push(L("grid", P.L, y(i), xr, y(i))); o.push(T("a", P.L - 5, y(i) + 4, i.toFixed(2), END)); }
+    o.push('<rect x="' + P.L + '" y="' + f1(g) + '" width="' + f1(xr - P.L) + '" height="' + f1(P.B - g) + '" fill="url(#ter)"/>');
+    o.push(S(P.L, g, xr, g, "#7f6c49", 1.6));
+    o.push(T("l2", P.L + 6, P.B - 6, (narrow ? "GROUND: PRE-WAR CURVE " : "GROUND: THE 2027 CURVE BEFORE THE WAR, ") + usd(D.swap_pre)));
+    o.push(S(P.L, P.B, xr, P.B, "#101214", 1.2));
+    for (i = 0; i <= 24; i++) {
+      var dm = Date.UTC(2026 + Math.floor(i / 12), i % 12, 1) / DAY, xm = x(dm);
+      o.push(S(xm, P.B, xm, P.B + (i % 3 ? 3 : 6), "#101214", 1));
+      if (i % 3 === 0 && i < 24 && (!narrow || i % 12 === 0)) o.push(T("a", xm + 2, P.B + 17, MONTHS[i % 12] + " " + (26 + Math.floor(i / 12))));
+    }
+    /* the shaded year, and the words on it */
+    o.push(T("l", (X27 + xr) / 2, P.T + 15, narrow ? "CAP PAYS ABOVE" : "THE CAP PAYS ABOVE THE SWAP RATE", MID + ' style="fill:#12794a"'));
+    o.push(T("l", (X27 + xr) / 2, y(2.72), narrow ? "MARKET BELOW" : "BELOW IT YOU BUY AT THE MARKET", MID + ' style="fill:#4b5056"'));
+    /* the climb */
+    var pts = D.climb.map(function (r) { return f1(x(day(r[0]))) + " " + f1(y(r[1])); });
+    o.push('<path d="M' + pts.join(" L") + '" fill="none" stroke="#101214" stroke-width="1.7" stroke-linejoin="round"/>');
+    o.push(T("l", x(day("2026-01-10")), y(4.92), narrow ? "THE CLIMB" : "THE CLIMB, ACTUAL"));
+    /* the four futures */
+    var J = Date.UTC(2027, 0, 1) / DAY;
+    D.cats.forEach(function (c) {
+      var yc = y(c.x), mine = c.id === "B";
+      if (!mine) {
+        o.push('<path d="M' + f1(td) + " " + f1(y(C.spot)) + " C " + f1(td + (X27 - td) * .55) + " " + f1(y(C.spot)) + ", " + f1(X27 - (X27 - td) * .25) + " " + f1(yc) + ", " + f1(X27) + " " + f1(yc) + '" fill="none" stroke="#4b5056" stroke-width="1.1" stroke-dasharray="4 3"/>');
+        o.push(S(X27, yc, xr, yc, "#4b5056", 1.1, "4 3"));
+      }
+      o.push('<circle cx="' + f1(xr + 13) + '" cy="' + f1(yc) + '" r="8.5" fill="#fbfaf6" stroke="#101214"/>' + T("l", xr + 13, yc + 4.3, c.id, MID));
+      if (!narrow) o.push(T("v", xr + 27, yc + 4.3, c.x.toFixed(2)));
+      else o.push(T("v", xr + 24, yc + 4.3, c.x.toFixed(2), ' style="font-size:10.5px"'));
+      if (!narrow) o.push(T("l2", xr + 62, yc + 4, c.name));
+    });
+    /* the swap, the decision height */
+    o.push(S(td, y(C.S), xr, y(C.S), "#0a7d9c", 2));
+    o.push(T("l", xr - 8, y(C.S) - 6, "SWAP " + C.S.toFixed(2) + (narrow ? "" : " · DECISION HEIGHT"), END + ' style="fill:#0a7d9c"'));
+    /* the glide path */
+    var gp = [[td, y(C.spot)]];
+    C.F.forEach(function (F, k) { gp.push([x(Date.UTC(2027, k, 15) / DAY), y(F)]); });
+    o.push('<path d="M' + gp.map(function (p) { return f1(p[0]) + " " + f1(p[1]); }).join(" L") + '" fill="none" stroke="#b5127c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>');
+    gp.slice(1).forEach(function (p, k) { o.push('<circle cx="' + f1(p[0]) + '" cy="' + f1(p[1]) + '" r="' + (k % 3 === 2 ? 2.8 : 1.9) + '" fill="#fbfaf6" stroke="#b5127c" stroke-width="1.3"/>'); });
+    o.push(T("l", gp[12][0] - 2, gp[12][1] + 16, (narrow ? "GLIDE PATH " : "THE MARKET'S GLIDE PATH, ") + C.F[11].toFixed(2), END + ' style="fill:#b5127c"'));
+    /* today: the final approach fix */
+    o.push(S(td, P.T + 2, td, P.B, "#101214", 1, "2 3"));
+    var cx = td, cy = y(C.spot), r = 7.5;
+    o.push('<path transform="translate(' + f1(cx) + " " + f1(cy) + ')" d="M0 0 L' + (r * .45) + " " + (-r) + " L" + (-r * .45) + " " + (-r) + "Z M0 0 L" + r + " " + (-r * .45) + " L" + r + " " + (r * .45) + "Z M0 0 L" + (r * .45) + " " + r + " L" + (-r * .45) + " " + r + "Z M0 0 L" + (-r) + " " + (r * .45) + " L" + (-r) + " " + (-r * .45) + 'Z" fill="#101214"/>');
+    o.push(T("l", td - 6, P.T + 13, "TODAY · " + C.spot.toFixed(2), END));
+    /* pencil */
+    o.push(T("h", X27 + 14, y(5.0), narrow ? "or this" : "or the missed approach"));
+    o.push('<path class="pen" d="M' + f1(X27 + 11) + " " + f1(y(5.03)) + " C " + f1(X27 - 8) + " " + f1(y(5.0)) + ", " + f1(X27 - 18) + " " + f1(y(5.35)) + ", " + f1(X27 - 4) + " " + f1(y(5.46)) + '"/>');
+    o.push(T("h", X27 + 14, y(2.42), narrow ? "if it ends" : "if the war ends", ""));
+    /* your strike and your price */
+    o.push('<g class="web" id="mine"></g>');
+    $("profile").setAttribute("viewBox", "0 0 " + P.W + " " + P.H);
+    $("profile").innerHTML = o.join("");
+    P.X27 = X27; P.xr = xr;
+    drawBugs();
+  }
+  function drawBugs() {
+    if (printing) return;
+    var y = P.y, o = [], yk = y(state.K), yx = y(state.x);
+    o.push(S(P.X27, yk, P.xr, yk, "#12794a", 1.5, "6 3"));
+    o.push('<path class="bug" data-b="K" d="M' + f1(P.xr) + " " + f1(yk) + " l-13 -8 h-22 v16 h22 z" + '" fill="#12794a"/>' + T("v", P.xr - 34, yk + 4, state.K.toFixed(2), ' style="fill:#fff;font-size:10.5px;pointer-events:none"'));
+    o.push(S(P.X27, yx, P.xr, yx, "#b9770a", 1.5, "2 3"));
+    o.push('<path class="bug" data-b="x" d="M' + f1(P.X27) + " " + f1(yx) + " l13 -8 h22 v16 h-22 z" + '" fill="#b9770a"/>' + T("v", P.X27 + 14, yx + 4, state.x.toFixed(2), ' style="fill:#fff;font-size:10.5px;pointer-events:none"'));
+    $("mine").innerHTML = o.join("");
+  }
+
+  /* ---- the plan: cost against price ---- */
+  function drawPayoff(rows) {
+    var W = 430, H = printing ? 318 : 300, l = 34, r = 8, t = 6, b = H - 22, lo = 1.5, hi = 6.5;
+    var x = function (p) { return l + (p - lo) / (hi - lo) * (W - l - r); }, y = function (p) { return b - (p - lo) / (hi - lo) * (b - t); };
+    var S0 = C.S, o = [], i, h = rows[2], cap = rows[3];
+    for (i = 2; i <= 6; i++) { o.push(L("grid", l, y(i), W - r, y(i))); o.push(T("a", l - 4, y(i) + 4, "$" + i, END)); o.push(L("grid", x(i), t, x(i), b)); }
+    o.push(S(l, b, W - r, b, "#101214", 1.2)); o.push(S(l, t, l, b, "#101214", 1.2));
+    function poly(f, st, w, d, op) {
+      var p = [];
+      for (var v = lo; v <= hi + 1e-9; v += 0.02) p.push(f1(x(v)) + " " + f1(y(Math.min(f(v), hi + .3))));
+      return '<path d="M' + p.join(" L") + '" fill="none" stroke="' + st + '" stroke-width="' + w + '"' + (d ? ' stroke-dasharray="' + d + '"' : "") + (op ? ' opacity="' + op + '"' : "") + "/>";
+    }
+    var top = [], v;
+    for (v = lo; v <= hi + 1e-9; v += 0.05) top.push(f1(x(v)) + " " + f1(y(h.cost(v))));
+    for (v = hi; v >= lo - 1e-9; v -= 0.05) top.push(f1(x(v)) + " " + f1(y(Math.min(v, S0))));
+    o.push('<path d="M' + top.join(" L") + 'Z" fill="#dcebe1" opacity=".8"/>');
+    o.push(poly(function (p) { return p; }, "#101214", 1.3));
+    o.push(poly(function () { return S0; }, "#0a7d9c", 1.8));
+    o.push(poly(function (p) { return cap.cost(p); }, "#12794a", 1, "4 3"));
+    o.push(poly(function (p) { return h.cost(p); }, "#12794a", 2.6));
+    D.cats.forEach(function (c) { o.push(S(x(c.x), b, x(c.x), b - 5, "#101214", 1)); o.push('<circle cx="' + f1(x(c.x)) + '" cy="' + (b + 11) + '" r="7.5" fill="#fbfaf6" stroke="#101214"/>' + T("l", x(c.x), b + 15, c.id, MID + ' style="font-size:11px"')); });
+    o.push(T("l", x(5.0), y(5.0) - 9, "NO HEDGE", END + ""));
+    o.push(T("l", x(4.75), y(S0) + 13, "SWAP", END + ' style="fill:#0a7d9c"'));
+    o.push(T("l", W - r, y(h.cost(6)) - 5, "CAP AT THE SWAP RATE", END + ' style="fill:#12794a"'));
+    o.push(T("l2", W - r, y(cap.cost(6)) - 4, "CAP AT TODAY'S PRICE", END + ' style="fill:#12794a"'));
+    var fx = 2.55;
+    o.push(T("h", x(fx) + 7, y(fx + h.fee / 2) + 25, "the fee, " + Math.round(h.fee * 100) + "¢", ' style="font-size:17px"'));
+    o.push(S(x(fx), y(fx), x(fx), y(fx + h.fee), "#23409e", 1.4));
+    var fx2 = 4.9;
+    o.push(S(x(fx2), y(S0), x(fx2), y(S0 + h.fee), "#23409e", 1.4));
+    o.push(T("h", x(fx2) + 5, y(S0) + 17, "the same " + Math.round(h.fee * 100) + "¢", ' style="font-size:17px"'));
+    $("payoff").setAttribute("viewBox", "0 0 " + W + " " + H);
+    $("payoff").innerHTML = o.join("");
+  }
+
+  /* ---- the back: three approaches ---- */
+  var RW = [[2020, "PRICES COLLAPSE"], [2022, "PRICES SPIKE"], [2026, "THE WAR"]];
+  function drawRunways() {
+    var key = state.inst + "_" + state.lim, html = "";
+    RW.forEach(function (rw) { html += '<div><div class="rwt">RWY ' + String(rw[0]).slice(2) + ' <span>' + rw[0] + " · " + rw[1] + '</span></div><svg id="r' + rw[0] + '" role="img" aria-label="Cash of the airline and of the seller through ' + rw[0] + '"></svg><div class="stat" id="s' + rw[0] + '"></div></div>'; });
+    $("rws").innerHTML = html;
+    var top = 50;
+    RW.forEach(function (rw) { D.runways[rw[0]][key].before_im.forEach(function (v) { top = Math.max(top, v); }); });
+    top = Math.ceil((top + 8) / 25) * 25;
+    RW.forEach(function (rw, idx) {
+      var Y = rw[0], R = D.runways[Y], S_ = R[key], W = 300, H = printing ? 276 : 262, l = 30, r = 4, t = 6, b = H - 16, lo = -126, hi = top;
+      var d0 = Date.UTC(Y, 0, 1) / DAY, d1 = Date.UTC(Y + 1, 0, 1) / DAY;
+      var x = function (d) { return l + clamp((d - d0) / (d1 - d0), 0, 1) * (W - l - r); }, y = function (v) { return b - (clamp(v, lo, hi) - lo) / (hi - lo) * (b - t); };
+      var o = [hatch.replace("HID", "g" + Y)], i, z = y(0);
+      [-100, -50, 50, 100, 150, 200].filter(function (v) { return v < hi; }).forEach(function (v) { o.push(L("grid", l, y(v), W - r, y(v))); o.push(T("a", l - 3, y(v) + 3.5, (v < 0 ? MINUS : "") + Math.abs(v), END + ' style="font-size:9.5px"')); });
+      o.push('<rect x="' + l + '" y="' + f1(z) + '" width="' + (W - l - r) + '" height="' + f1(b - z) + '" fill="url(#g' + Y + ')" opacity=".55"/>');
+      o.push(S(l, z, W - r, z, "#7f6c49", 1.5));
+      o.push(T("a", l - 3, z + 3.5, "0", END + ' style="font-size:9.5px"'));
+      for (i = 0; i < 12; i += 3) o.push(T("a", x(Date.UTC(Y, i, 1) / DAY) + 1, b + 11, MONTHS[i], ' style="font-size:9.5px"'));
+      var ds = S_.days.map(day), up = [], dn = [];
+      ds.forEach(function (d, k) { up.push(f1(x(d)) + " " + f1(y(S_.before_im[k]))); dn.push(f1(x(d)) + " " + f1(y(S_.before_im[k] - S_.im[k]))); });
+      o.push('<path d="M' + up.join(" L") + " L" + dn.slice().reverse().join(" L") + 'Z" fill="#b9770a" opacity=".3"/>');
+      var sw = R.swap.map(function (p) { return f1(x(day(p[0]))) + " " + f1(y(-p[1])); });
+      o.push('<path d="M' + f1(x(d0)) + " " + f1(z) + " L" + sw.join(" L") + '" fill="none" stroke="#c8321f" stroke-width="1.7" stroke-linejoin="round"/>');
+      o.push('<path d="M' + dn.join(" L") + '" fill="none" stroke="#12794a" stroke-width="2" stroke-linejoin="round"/>');
+      var st = D.years[Y][key], sc = D.years[Y].swap;
+      if (sc.m > 20) {
+        var xs = x(day(sc.on)), ys = y(-sc.m), right = xs < W / 2;
+        o.push('<circle cx="' + f1(xs) + '" cy="' + f1(ys) + '" r="2.6" fill="#c8321f"/>');
+        o.push(T("l", xs + (right ? 6 : -6), ys + 3, "SWAP CALLS $" + Math.round(sc.m) + "M", (right ? "" : END) + ' style="fill:#c8321f"'));
+      }
+      if (st.im.m > 15) {
+        var xi = x(day(st.im.on));
+        o.push(T("l2", l + 4, t + 11, "INITIAL MARGIN PEAKS AT $" + Math.round(st.im.m) + "M", ' style="fill:#8a5a06"'));
+      }
+      if (idx === 0) { o.push(T("h", W - r, y(0) - 7, "the seller stays above ground", END + ' style="font-size:15.5px;fill:#12794a"')); }
+      $("r" + Y).setAttribute("viewBox", "0 0 " + W + " " + H);
+      $("r" + Y).innerHTML = o.join("");
+      $("s" + Y).innerHTML = [["PREMIUM", st.premium], ["PEAK HEDGE LOSS", st.worst], ["PEAK MARGIN", st.im.m], ["LOWEST CASH", st.low]].map(function (c) { return "<div>" + c[0] + "<b>" + (c[1] < 0 ? MINUS : "") + Math.abs(c[1]).toFixed(1) + "</b></div>"; }).join("");
+    });
+  }
+
+  function drawPrices() {
+    var rows = D.two, W = 330, H = printing ? 118 : 104, l = 56, r = 6, t = 4, rowh = (H - t - 12) / rows.length, mx = 26;
+    var x = function (v) { return l + v / mx * (W - l - r); }, o = [];
+    [0, 5, 10, 15, 20, 25].forEach(function (v) { o.push(L("grid", x(v), t, x(v), H - 12)); o.push(T("a", x(v), H - 2, v + "¢", MID + ' style="font-size:9.5px"')); });
+    rows.forEach(function (p, i) {
+      var y = t + rowh * (i + .5);
+      o.push(T("l2", l - 6, y + 3.5, p.otm ? "+" + Math.round(p.otm * 100) + "% CAP" : "AT SWAP", END + ' style="font-size:10.5px"'));
+      o.push(S(x(p.burn_low * 100), y, x(p.burn_high * 100), y, "#c8321f", 1.2));
+      o.push(S(x(p.replication * 100), y, x(p.burn * 100), y, "#101214", 1, "2 2"));
+      o.push('<circle cx="' + f1(x(p.replication * 100)) + '" cy="' + f1(y) + '" r="3.4" fill="#101214"/><circle cx="' + f1(x(p.burn * 100)) + '" cy="' + f1(y) + '" r="3.4" fill="#c8321f"/>');
+    });
+    $("prices").setAttribute("viewBox", "0 0 " + W + " " + H);
+    $("prices").innerHTML = o.join("");
+  }
+
+  function drawLayers() {
+    var rows = D.layers.slice().reverse(), W = 270, H = printing ? 150 : 132, mid = 135, gap = 30, t = 13, rh = (H - t) / rows.length, mx = 75, o = [];
+    var sc = function (v) { return v / mx * (mid - gap - 4); };
+    o.push(T("l2", mid - gap, 9, "SHARE OF PREMIUM", END)); o.push(T("l2", mid + gap, 9, "SHARE OF CLAIMS"));
+    rows.forEach(function (r, i) {
+      var y = t + i * rh, h = rh - 3;
+      o.push('<rect x="' + f1(mid - gap - sc(r.p)) + '" y="' + f1(y) + '" width="' + f1(sc(r.p)) + '" height="' + f1(h) + '" fill="#101214"/>');
+      o.push('<rect x="' + f1(mid + gap) + '" y="' + f1(y) + '" width="' + f1(sc(r.c)) + '" height="' + f1(h) + '" fill="#c8321f"/>');
+      o.push(T("l", mid, y + h / 2 + 4, r.name, MID + ' style="font-size:11px"'));
+      var lp = sc(r.p) > 26;
+      o.push(T("v", lp ? mid - gap - 3 : mid - gap - sc(r.p) - 3, y + h / 2 + 4, r.p + "%", END + ' style="font-size:10.5px' + (lp ? ";fill:#fff" : "") + '"'));
+      var lc = sc(r.c) > 26;
+      o.push(T("v", lc ? mid + gap + 3 : mid + gap + sc(r.c) + 3, y + h / 2 + 4, r.c + "%", ' style="font-size:10.5px' + (lc ? ";fill:#fff" : "") + '"'));
+    });
+    $("layers").setAttribute("viewBox", "0 0 " + W + " " + H);
+    $("layers").innerHTML = o.join("");
+  }
+
+  function drawLog() {
+    var key = state.inst + "_" + state.lim, rows = D.log, narrow = !printing && $("flog").parentNode.clientWidth < 560, W = narrow ? 560 : 1000, H = printing ? 182 : narrow ? 170 : 176, l = 34, r = 4, t = 15, b = H - 2, mx = 120;
+    var cw = (W - l - r) / rows.length, y = function (v) { return t + v / mx * (b - t); }, o = [];
+    [50, 100].forEach(function (v) { o.push(L("grid", l, y(v), W - r, y(v))); o.push(T("a", l - 4, y(v) + 4, (MINUS) + v, END + ' style="font-size:10.5px"')); });
+    rows.forEach(function (R, i) {
+      var cx = l + cw * (i + .5), a = R.swap, c = Math.max(-R[key], 0), w = cw * .3;
+      if (!narrow || i % 3 === 0 || a > 60) o.push(T("a", cx, t - 4, "'" + String(R.y).slice(2), MID + ' style="font-size:10.5px' + (a > 60 ? ";fill:#c8321f;font-weight:600" : "") + '"'));
+      o.push('<rect x="' + f1(cx - w - 1) + '" y="' + t + '" width="' + f1(w) + '" height="' + f1(Math.max(y(a) - t, .6)) + '" fill="#c8321f"/>');
+      o.push('<rect x="' + f1(cx + 1) + '" y="' + t + '" width="' + f1(w) + '" height="' + f1(Math.max(y(c) - t, .6)) + '" fill="#12794a"/>');
+      if (a > 60) o.push(T("v", cx + w + 5, y(a) - 2, "$" + Math.round(a) + "M", ' style="fill:#c8321f;font-size:11px"'));
+      if (c > 10) o.push(T("v", cx + 1 + w / 2, y(c) + 12, "$" + Math.round(c) + "M", MID + ' style="fill:#12794a;font-size:11px"'));
+    });
+    o.push(S(l, t, W - r, t, "#7f6c49", 1.5));
+    $("flog").setAttribute("viewBox", "0 0 " + W + " " + H);
+    $("flog").innerHTML = o.join("");
+  }
+
+  function drawAlts() {
+    var h = "<thead><tr><th></th><th>2008-25</th><th>2022</th><th>2026<br>TO DATE</th></tr></thead><tbody>";
+    D.alts.forEach(function (a) {
+      h += "<tr><td>" + a.name + "</td>" + a.v.map(function (v) { return '<td class="' + (v < 0 ? "neg" : "") + '">' + (v < 0 ? MINUS : "+") + Math.abs(v).toFixed(0) + "</td>"; }).join("") + "</tr>";
+    });
+    $("alts").innerHTML = h + "</tbody>";
+  }
+
+  /* ---- controls ---- */
+  function renderFront() { var rows = drawTable(); drawBugs(); drawPayoff(rows); }
+  function seg(id, items, get, set) {
+    var el = $(id);
+    el.innerHTML = items.map(function (it) { return '<button type="button" data-v="' + it[0] + '">' + it[1] + "</button>"; }).join("");
+    function mark() { Array.prototype.forEach.call(el.children, function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-v") === String(get()))); }); }
+    el.addEventListener("click", function (e) { var v = e.target.getAttribute("data-v"); if (v === null) return; set(v); mark(); });
+    mark();
+  }
+  seg("scale", D.scales.map(function (s) { return [s.v, s.name]; }), function () { return state.scale; }, function (v) { state.scale = +v; $("os").textContent = "× " + (+v).toFixed(2); renderFront(); });
+  $("os").textContent = "× 1.00";
+  seg("inst", [["ho", "HEATING OIL"], ["brent", "BRENT"]], function () { return state.inst; }, function (v) { state.inst = v; drawRunways(); drawLog(); });
+  seg("lim", [["none", "NONE"], ["one", "$1 A GALLON"]], function () { return state.lim; }, function (v) { state.lim = v; drawRunways(); drawLog(); });
+  $("k").addEventListener("input", function (e) { state.K = +e.target.value; renderFront(); });
+  $("x").addEventListener("input", function (e) { state.x = +e.target.value; renderFront(); });
+  var dragging = null;
+  function dragTo(e) {
+    var svg = $("profile"), b = svg.getBoundingClientRect(), p = Math.round(P.p((e.clientY - b.top) / b.height * P.H) * 100) / 100;
+    if (dragging === "K") state.K = clamp(p, 2.5, 6); else state.x = clamp(p, 1.5, 6);
+    renderFront();
+  }
+  $("profile").addEventListener("pointerdown", function (e) { var b = e.target.getAttribute && e.target.getAttribute("data-b"); if (b) { dragging = b; e.preventDefault(); try { e.target.ownerSVGElement.setPointerCapture(e.pointerId); } catch (x) {} } });
+  $("profile").addEventListener("pointermove", function (e) { if (dragging) dragTo(e); });
+  ["pointerup", "pointercancel"].forEach(function (t) { $("profile").addEventListener(t, function () { dragging = null; }); });
+
+  function turn(to) {
+    var back = to === undefined ? !$("book").classList.contains("turned") : to;
+    $("book").classList.toggle("turned", back);
+    $("flip").textContent = back ? "Back to the front" : "Turn over";
+    $("front").inert = back; $("back").inert = !back;
+  }
+  $("flip").addEventListener("click", function () { turn(); });
+  $("print").addEventListener("click", function () { window.print(); });
+
+  var tip = $("why");
+  Array.prototype.forEach.call(doc.querySelectorAll("[data-why]"), function (el) {
+    el.addEventListener("mouseenter", function () { var r = el.getBoundingClientRect(); tip.textContent = el.getAttribute("data-why"); tip.classList.add("on"); tip.style.left = clamp(r.left, 8, innerWidth - 280) + "px"; tip.style.top = (r.bottom + 6) + "px"; });
+    el.addEventListener("mouseleave", function () { tip.classList.remove("on"); });
+  });
+
+  function buildAll() { drawProfile(); renderFront(); drawRunways(); drawLog(); drawPrices(); drawLayers(); drawAlts(); }
+  window.addEventListener("beforeprint", function () { printing = true; buildAll(); });
+  window.addEventListener("afterprint", function () { printing = q.has("print"); buildAll(); });
+  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(buildAll, 150); });
+  $("back").inert = true;
+  buildAll();
+  if (q.has("back")) turn(true);
+  window.__note = { D: D, state: state, fees: fees, hedges: hedges, regret: regret, turn: turn, render: renderFront };
+  function go() { doc.body.classList.add("in"); }
+  if (doc.fonts && doc.fonts.ready) { doc.fonts.ready.then(function () { buildAll(); go(); }); setTimeout(go, 1500); } else go();
+})();
+</script>
+</body>
+</html>
